@@ -3,9 +3,15 @@ Plugin for Kerbal Space Program (KSP).  Adds a visual indicator to each parachut
 
 Copyright 2015, Sean McDougall
 
+Forum Thread: http://forum.kerbalspaceprogram.com/threads/129154
+
 ## DOWNLOAD
 
 GitHub: https://github.com/seanmcdougall/ChuteSafetyIndicator
+
+KerbalStuff: http://www.kerbalstuff.com/mod/1012/Chute%20Safety%20Indicator
+
+Curse: http://www.curse.com/ksp-mods/kerbal/232908-chute-safety-indicator
 
 ## CHANGELOG
 
