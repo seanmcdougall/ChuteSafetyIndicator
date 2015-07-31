@@ -15,11 +15,6 @@ CKAN: http://forum.kerbalspaceprogram.com/threads/100067
 
 Curse: http://www.curse.com/ksp-mods/kerbal/232908-chute-safety-indicator
 
-## CHANGELOG
-
-1.0.0 - 2015/07/19
-- initial release
-
 ## INSTALLATION
 Copy the ChuteSafetyIndicator folder and all its contents into your KSP GameData folder.
 
