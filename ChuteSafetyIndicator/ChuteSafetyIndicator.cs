@@ -43,7 +43,7 @@ namespace ChuteSafetyIndicator
                 if (p.Modules.OfType<ModuleParachute>().Any())
                 {
                     ModuleParachute chute = p.Modules.GetModules<ModuleParachute>().First();
-                    if (chute.deploymentState == ModuleParachute.deploymentStates.STOWED)
+                    if (chute.deploymentState == ModuleParachute.deploymentStates.STOWED && FlightGlobals.ActiveVessel.atmDensity > 0)
                     {
                         if (chute.deploySafe == "Safe")
                         {
