@@ -29,11 +29,25 @@ namespace ChuteSafetyIndicator
     public class ChuteSafetyIndicator : MonoBehaviour
     {
         internal Settings settings = new Settings("ChuteSafetyIndicator.cfg");
+        internal Texture2D safeTexture = new Texture2D(1, 1, TextureFormat.ARGB32, false);
+        internal Texture2D riskyTexture = new Texture2D(1, 1, TextureFormat.ARGB32, false);
+        internal Texture2D unSafeTexture = new Texture2D(1, 1, TextureFormat.ARGB32, false);
+        internal Texture2D origTexture = null;
 
         internal void Awake()
         {
             settings.Load();
             settings.Save();
+        }
+
+        internal void Start()
+        {
+            safeTexture.SetPixel(0, 0, settings.safeColor);
+            safeTexture.Apply();
+            riskyTexture.SetPixel(0, 0, settings.riskyColor);
+            riskyTexture.Apply();
+            unSafeTexture.SetPixel(0, 0, settings.unSafeColor);
+            unSafeTexture.Apply();
         }
 
         internal void Update()
@@ -42,25 +56,37 @@ namespace ChuteSafetyIndicator
             {
                 if (p.Modules.OfType<ModuleParachute>().Any())
                 {
-                    ModuleParachute chute = p.Modules.GetModules<ModuleParachute>().First();
-                    if (chute.deploymentState == ModuleParachute.deploymentStates.STOWED && FlightGlobals.ActiveVessel.atmDensity > 0)
+                    StackIcon chuteIcon = Staging.FindIcon(p);
+                    if (chuteIcon != null)
                     {
-                        if (chute.deploySafe == "Safe")
+                        if (origTexture == null)
                         {
-                            p.stackIcon.SetBgColor(settings.safeColor);
+                            origTexture = chuteIcon.Bg;
                         }
-                        if (chute.deploySafe == "Risky")
+                        ModuleParachute chute = p.Modules.GetModules<ModuleParachute>().First();
+                        if (chute.deploymentState == ModuleParachute.deploymentStates.STOWED && FlightGlobals.ActiveVessel.atmDensity > 0)
                         {
-                            p.stackIcon.SetBgColor(settings.riskyColor);
+                            if (chute.deploySafe == "Safe")
+                            {
+                                //p.stackIcon.SetBgColor(settings.safeColor);
+                                chuteIcon.Bg = safeTexture;
+                            }
+                            if (chute.deploySafe == "Risky")
+                            {
+                                //p.stackIcon.SetBgColor(settings.riskyColor);
+                                chuteIcon.Bg = riskyTexture;
+                            }
+                            if (chute.deploySafe == "Unsafe")
+                            {
+                                //p.stackIcon.SetBgColor(settings.unSafeColor);
+                                chuteIcon.Bg = unSafeTexture;
+                            }
                         }
-                        if (chute.deploySafe == "Unsafe")
+                        else
                         {
-                            p.stackIcon.SetBgColor(settings.unSafeColor);
+                            //p.stackIcon.SetBgColor(Color.white);
+                            chuteIcon.Bg = origTexture;
                         }
-                    }
-                    else
-                    {
-                        p.stackIcon.SetBgColor(XKCDColors.LightGrey);
                     }
                 }
             }

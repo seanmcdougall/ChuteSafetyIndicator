@@ -31,13 +31,13 @@ namespace ChuteSafetyIndicator
         internal Settings(String FilePath) : base(FilePath) { }
 
         [Persistent]
-        internal Color safeColor = Color.green;
+        internal Color safeColor = new Color(0f, 0.7f, 0f);
 
         [Persistent]
-        internal Color riskyColor = Color.yellow;
+        internal Color riskyColor = new Color(1f, 1f, 0f);
 
         [Persistent]
-        internal Color unSafeColor = Color.red;
+        internal Color unSafeColor = new Color(0.9f, 0f, 0f);
 
     }
 }
