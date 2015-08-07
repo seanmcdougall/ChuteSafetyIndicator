@@ -2,10 +2,11 @@
 	"NAME":"ChuteSafetyIndicator",
 	"URL":"https://raw.githubusercontent.com/seanmcdougall/ChuteSafetyIndicator/master/ChuteSafetyIndicator.version",
 	"DOWNLOAD":"http://forum.kerbalspaceprogram.com/threads/129154",
+	"CHANGE_LOG_URL":"https://raw.githubusercontent.com/seanmcdougall/ChuteSafetyIndicator/master/CHANGELOG.md",
 	"VERSION": {
 		"MAJOR":1,
 		"MINOR":0,
-		"PATCH":1,
+		"PATCH":2,
 		"BUILD":0
 	},
 	"KSP_VERSION": {
