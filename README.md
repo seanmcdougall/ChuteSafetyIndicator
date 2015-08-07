@@ -1,7 +1,9 @@
 # Chute Safety Indicator
 Plugin for Kerbal Space Program (KSP).  Changes the background color of each parachute's staging icon to let you know whether or not it's safe to deploy.
 
-Copyright 2015, Sean McDougall
+Copyright (c) 2015 Sean McDougall
+
+License: GPL-3.0
 
 Forum Thread: http://forum.kerbalspaceprogram.com/threads/129154
 
@@ -22,7 +24,9 @@ Copy the ChuteSafetyIndicator folder and all its contents into your KSP GameData
 This plugin will change the background color of each parachute's staging icon based on the current safety status.
 
 Safe: green
+
 Risky: yellow
+
 Unsafe: red
 
 ## ADVANCED CONFIGURATION
@@ -30,14 +34,15 @@ These default colors can be modified by editing the ChuteSafetyIndicator.cfg fil
 and running KSP with it for the first time.
 
 The default looks like this:
-
-  Settings
-  {
-      safeColor = 0,1,0,1
-      riskyColor = 1,0.9215686,0.01568628,1
-      unSafeColor = 1,0,0,1
-      clearBackground = False
-  }
+```
+Settings
+{
+  safeColor = 0,1,0,1
+  riskyColor = 1,0.9215686,0.01568628,1
+  unSafeColor = 1,0,0,1
+  clearBackground = False
+}
+```
 
 The three colors are stored in Unity format (see http://docs.unity3d.com/ScriptReference/Color.html).  Each component is a floating point number between 0 and 1.  In order, they denote the red,
 green, blue, and alpha (transparency) channels.  
