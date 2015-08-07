@@ -68,24 +68,48 @@ namespace ChuteSafetyIndicator
                         {
                             if (chute.deploySafe == "Safe")
                             {
-                                //p.stackIcon.SetBgColor(settings.safeColor);
-                                chuteIcon.Bg = safeTexture;
+                                if (settings.clearBackground)
+                                {
+                                    chuteIcon.Bg = safeTexture;
+                                }
+                                else
+                                {
+                                    p.stackIcon.SetBgColor(settings.safeColor);
+                                }
                             }
                             if (chute.deploySafe == "Risky")
                             {
-                                //p.stackIcon.SetBgColor(settings.riskyColor);
-                                chuteIcon.Bg = riskyTexture;
+                                if (settings.clearBackground)
+                                {
+                                    chuteIcon.Bg = riskyTexture;
+                                }
+                                else
+                                {
+                                    p.stackIcon.SetBgColor(settings.riskyColor);
+                                }
                             }
                             if (chute.deploySafe == "Unsafe")
                             {
-                                //p.stackIcon.SetBgColor(settings.unSafeColor);
-                                chuteIcon.Bg = unSafeTexture;
+                                if (settings.clearBackground)
+                                {
+                                    chuteIcon.Bg = unSafeTexture;
+                                }
+                                else
+                                {
+                                    p.stackIcon.SetBgColor(settings.unSafeColor);
+                                }
                             }
                         }
                         else
                         {
-                            //p.stackIcon.SetBgColor(Color.white);
-                            chuteIcon.Bg = origTexture;
+                            if (settings.clearBackground)
+                            {
+                                chuteIcon.Bg = origTexture;
+                            }
+                            else
+                            {
+                                p.stackIcon.SetBgColor(Color.white);
+                            }
                         }
                     }
                 }

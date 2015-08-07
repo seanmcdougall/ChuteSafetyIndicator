@@ -39,5 +39,8 @@ namespace ChuteSafetyIndicator
         [Persistent]
         internal Color unSafeColor = new Color(0.9f, 0f, 0f);
 
+        [Persistent]
+        internal bool clearBackground = false;
+
     }
 }
