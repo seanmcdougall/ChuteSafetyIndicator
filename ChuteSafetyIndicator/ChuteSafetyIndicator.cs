@@ -64,7 +64,7 @@ namespace ChuteSafetyIndicator
                             origTexture = chuteIcon.Bg;
                         }
                         ModuleParachute chute = p.Modules.GetModules<ModuleParachute>().First();
-                        if (chute.deploymentState == ModuleParachute.deploymentStates.STOWED && FlightGlobals.ActiveVessel.atmDensity > 0)
+                        if ((chute.deploymentState == ModuleParachute.deploymentStates.STOWED || chute.deploymentState == ModuleParachute.deploymentStates.ACTIVE) && FlightGlobals.ActiveVessel.atmDensity > 0)
                         {
                             if (chute.deploySafe == "Safe")
                             {
@@ -75,6 +75,11 @@ namespace ChuteSafetyIndicator
                                 else
                                 {
                                     p.stackIcon.SetBgColor(settings.safeColor);
+                                }
+                                if (settings.onlyDeployWhenSafe)
+                                {
+                                    chute.deployAltitude = (float)FlightGlobals.ActiveVessel.altitude;
+                                    chute.minAirPressureToOpen = 0.01f;
                                 }
                             }
                             if (chute.deploySafe == "Risky")
@@ -87,6 +92,11 @@ namespace ChuteSafetyIndicator
                                 {
                                     p.stackIcon.SetBgColor(settings.riskyColor);
                                 }
+                                if (settings.onlyDeployWhenSafe)
+                                {
+                                    chute.deployAltitude = 200f;
+                                    chute.minAirPressureToOpen = 100f;
+                                }
                             }
                             if (chute.deploySafe == "Unsafe")
                             {
@@ -98,7 +108,13 @@ namespace ChuteSafetyIndicator
                                 {
                                     p.stackIcon.SetBgColor(settings.unSafeColor);
                                 }
+                                if (settings.onlyDeployWhenSafe)
+                                {
+                                    chute.deployAltitude = 200f;
+                                    chute.minAirPressureToOpen = 100f;
+                                }
                             }
+
                         }
                         else
                         {

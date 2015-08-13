@@ -42,5 +42,8 @@ namespace ChuteSafetyIndicator
         [Persistent]
         internal bool clearBackground = false;
 
+        [Persistent]
+        internal bool onlyDeployWhenSafe = true;
+
     }
 }
