@@ -41,9 +41,18 @@ namespace ChuteSafetyIndicator
 
         [Persistent]
         internal bool clearBackground = false;
+        internal bool resetClearBackground = false;
 
         [Persistent]
         internal bool onlyDeployWhenSafe = true;
+        internal bool resetOnlyDeployWhenSafe = false;
 
+        [Persistent]
+        internal bool useStockToolbar = true;
+
+        internal Texture2D safeTexture = new Texture2D(1, 1, TextureFormat.ARGB32, false);
+        internal Texture2D riskyTexture = new Texture2D(1, 1, TextureFormat.ARGB32, false);
+        internal Texture2D unSafeTexture = new Texture2D(1, 1, TextureFormat.ARGB32, false);
+        
     }
 }

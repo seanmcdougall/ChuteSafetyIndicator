@@ -49,13 +49,25 @@
   <ItemGroup>
     <Compile Include="ChuteSafetyIndicator.cs" />
     <Compile Include="ConfigNodeStorage.cs" />
+    <Compile Include="ModStyle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="SettingsWindow.cs" />
+    <Compile Include="SettingsWrapper.cs" />
+    <Compile Include="ToolbarWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ChuteSafetyIndicator.version">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="textures\blizzyToolbar.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\toolbar.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

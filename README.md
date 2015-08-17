@@ -20,7 +20,7 @@ Curse: http://www.curse.com/ksp-mods/kerbal/232908-chute-safety-indicator
 ## INSTALLATION
 Copy the ChuteSafetyIndicator folder and all its contents into your KSP GameData folder.
 
-## INSTRUCTIONS
+## FEATURES
 This plugin will change the background color of each parachute's staging icon based on the current safety status.
 
 Safe: green
@@ -29,23 +29,20 @@ Risky: yellow
 
 Unsafe: red
 
-## ADVANCED CONFIGURATION
-These default colors can be modified by editing the ChuteSafetyIndicator.cfg file inside GameData/ChuteSafetyIndicator/.  This file will be automatically created after installing this mod
-and running KSP with it for the first time.
+You can also enable a setting which will prevent staged chutes from deploying until it's safe to do so.
 
-The default looks like this:
-```
-Settings
-{
-  safeColor = 0,1,0,1
-  riskyColor = 1,0.9215686,0.01568628,1
-  unSafeColor = 1,0,0,1
-  clearBackground = False
-}
-```
+## SETTINGS
+The settings window can be launched from the stock application launcher or blizzy78's toolbar.
 
-The three colors are stored in Unity format (see http://docs.unity3d.com/ScriptReference/Color.html).  Each component is a floating point number between 0 and 1.  In order, they denote the red,
-green, blue, and alpha (transparency) channels.  
+"Use stock toolbar" will toggle the button in the stock launcher on and off (only available if you have blizzy78's toolbar installed)
 
-Setting "clearBackground" to "True" will remove the default grey gradient background that's present on the staging icons.  Doing this will make it easier for color blind users to find a workable set of
-colors, since the background texture will no longer interfere.
+"Only deploy when safe" will prevent staged chutes form deploying until safe to do so.
+
+"Clear icon backgrounds" will remove the default gray gradient background that's present on the staging icons.
+
+You may also adjust the safe/risky/unsafe colours using the sliders to adjust the (R)ed, (G)reen, (B)lue and (A)lpha (transparency) components.  If you have "only deploy when safe" enabled, 
+the "risky" colour will also be used on the chute icon (with the default background) to show that the chute is active but not yet deployed.
+
+## CREDITS
+
+Icon made by Freepik (www.freepik.com) from Flaticon (www.flaticon.com) is licensed under CC BY 3.0 (creativecommons.org/licenses/by/3.0).
